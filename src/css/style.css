@@ -1,0 +1,17 @@
+.c09MineButton > .sapMBtnInner {
+	width: 2rem !important;
+	height: 2rem !important;
+	padding: 0rem !important;
+}
+
+.c09MinesweeperGridColumn {
+	padding: 0rem !important;
+}
+
+.c09MineButton {
+	padding: 0rem !important;
+}
+
+.c09TimerText {
+	font-size: 1.5rem !important;
+}

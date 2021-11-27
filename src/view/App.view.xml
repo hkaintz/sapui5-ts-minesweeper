@@ -1,0 +1,58 @@
+<mvc:View controllerName="concircle.demo.minesweeper.controller.App" xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:c09="concircle.demo.minesweeper.control">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page showHeader="false">
+					<content>
+						<VBox>
+							<Panel expandable="true" id="Panel">
+								<headerToolbar>
+									<OverflowToolbar style="Clear">
+										<Title text="{i18n>appTitle}" />
+										<ToolbarSeparator />
+										<Button text="{i18n>gameSettings}" press="onTogglePanelPress"
+											icon="sap-icon://provision" />
+										<ToolbarSeparator />
+										<Button text="{i18n>start}" press="onStartPress" type="Emphasized"
+											icon="sap-icon://restart" />
+										<Button text="{i18n>stop}" press="onStopPress" type="Reject"
+											icon="sap-icon://stop" />
+										<ToolbarSeparator />
+										<c09:Timer id="Timer" />
+									</OverflowToolbar>
+								</headerToolbar>
+								<content>
+									<f:SimpleForm editable="true" layout="ResponsiveGridLayout" title="{i18n>settings}"
+										labelSpanXL="2" labelSpanL="2" labelSpanM="2" labelSpanS="12"
+										singleContainerFullSize="false">
+										<f:content>
+											<Label text="{i18n>fields}" />
+											<StepInput value="{Settings>/FieldCount}" min="2" max="35"
+												enabled="{= !${Settings>/GameStarted} }" />
+											<StepInput value="{Settings>/FieldCount}" min="2" max="35"
+												enabled="{= !${Settings>/GameStarted} }" />
+											<Label text="{i18n>mines}" />
+											<StepInput value="{Settings>/MineCount}" min="1"
+												enabled="{= !${Settings>/GameStarted} }" />
+											<Label text="{i18n>difficulty}" />
+											<RadioButtonGroup columns="4" enabled="{= !${Settings>/GameStarted} }"
+												select="onDifficultySelect" selectedIndex="1">
+												<RadioButton id="EASY" text="{i18n>easy}" />
+												<RadioButton id="MEDIUM" text="{i18n>medium}" />
+												<RadioButton id="HARD" text="{i18n>hard}" />
+												<RadioButton id="XTREME" text="{i18n>extreme}" />
+											</RadioButtonGroup>
+										</f:content>
+									</f:SimpleForm>
+								</content>
+							</Panel>
+							<FlexBox id="gridContainer" alignContent="Center" alignItems="Center"
+								justifyContent="Center" />
+						</VBox>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
