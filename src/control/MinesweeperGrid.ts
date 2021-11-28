@@ -48,7 +48,7 @@ class MinesweeperGrid extends Table {
 
 	public init(): void {
 		super.init();
-		this.setFixedLayout("Strict");
+		this.setFixedLayout(true);
 		this.setBackgroundDesign("Transparent");
 		this.setShowSeparators("None");
 	}
