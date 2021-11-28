@@ -9,6 +9,12 @@
 		"description": "{{app_description}}",
 		"applicationVersion": {
 			"version": "1.0.0"
+		},
+		"dataSources": {
+			"ZFIORI_DEMOS_SRV": {
+				"uri": "/sap/opu/odata/sap/ZFIORI_DEMOS_SRV/",
+				"type": "OData"
+			}
 		}
 	},
 
@@ -55,6 +61,18 @@
 				"settings": {
 					"bundleName": "concircle.demo.minesweeper.i18n.i18n"
 				}
+			},
+			"": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "None",
+					"defaultUpdateMethod": "PUT",
+					"useBatch": true
+				},
+				"dataSource": "ZFIORI_DEMOS_SRV",
+				"preload": true
 			},
 			"Settings": {
 				"type": "sap.ui.model.json.JSONModel",

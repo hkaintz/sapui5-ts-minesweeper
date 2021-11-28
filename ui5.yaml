@@ -19,3 +19,8 @@ server:
       extraExts: "xml,json,properties"
       port: 35729
       path: "webapp"
+  - name: ui5-middleware-simpleproxy
+    mountPath: /sap/opu/odata/sap/ZFIORI_DEMOS_SRV/
+    afterMiddleware: compression
+    configuration:
+      baseUri: "https://s4h.rp.concircle.com/sap/opu/odata/sap/ZFIORI_DEMOS_SRV/"

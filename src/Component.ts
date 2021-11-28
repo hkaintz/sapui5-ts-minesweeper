@@ -1,5 +1,8 @@
 import UIComponent from "sap/ui/core/UIComponent";
-import { support } from "sap/ui/Device";
+import {
+	support
+} from "sap/ui/Device";
+import ODataModel from "sap/ui/model/odata/v2/ODataModel";
 
 
 /**
@@ -11,20 +14,26 @@ export default class Component extends UIComponent {
 		manifest: "json"
 	};
 
-	private contentDensityClass : string;
+	private contentDensityClass: string;
 
-	public init() : void {
+	public init(): void {
 		super.init();
+		this.createLogEntry();
 	}
 
-	/**
-	 * This method can be called to determine whether the sapUiSizeCompact or sapUiSizeCozy
-	 * design mode class should be set, which influences the size appearance of some controls.
-	 *
-	 * @public
-	 * @return {string} css class, either 'sapUiSizeCompact' or 'sapUiSizeCozy' - or an empty string if no css class should be set
-	 */
-	public getContentDensityClass() : string {
+	public createLogEntry(): void {
+		const model = this.getModel() as ODataModel;
+		model.callFunction("/CreateLogEntry", {
+			method: "GET",
+			urlParameters: {
+				"Application": "TS-MINESWEEPER",
+				"Username": "",
+				"Comment": ""
+			}
+		});
+	}
+
+	public getContentDensityClass(): string {
 		if (this.contentDensityClass === undefined) {
 			// check whether FLP has already set the content density class; do nothing in this case
 			if (document.body.classList.contains("sapUiSizeCozy") || document.body.classList.contains("sapUiSizeCompact")) {
